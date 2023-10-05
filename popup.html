@@ -20,11 +20,15 @@
         }
 
         .extHeight {
-            height: 31.4rem;
+            height: 34rem;
+        }
+
+        .extWidth {
+            width: 30rem;
         }
     </style>
 
-    <div class="container extHeight w-80 bg-black">
+    <div class="container extHeight extWidth bg-black flex flex-col justify-around">
         <div class="heading flex justify-around items-center pt-3 pb-3 pl-3 bg-gray-800">
             <div class="flex gap-2">
                 <div class="logo"><i class="fa-solid fa-list"></i></div>
@@ -36,7 +40,7 @@
         <!-- <div class="featureList text-center h-3"><kbd>Features</kbd></div> -->
 
 
-        <div class="social flex justify-evenly mt-4 gap-3">
+        <div class="social flex justify-evenly mt-3 gap-3">
             <div class="instagram"><a target="_blank" href="https://www.instagram.com/just_prafull/"><i
                         class="fa-brands fa-instagram fa-2xl"></i></a></div>
             <div class="github"><a target="_blank" href="https://github.com/prafuel"><i
@@ -46,10 +50,16 @@
         </div>
 
 
-        <div class="section2 h-80 mt-4 ml-2 mr-3 flex flex-col border border-white bg-gray-800 overflow-y-auto no-scrollbar"></div>
+        <div
+            class="section2 h-80 mt-2 ml-2 mr-3 flex flex-col border border-white bg-gray-800 overflow-y-auto no-scrollbar">
+        </div>
 
+        <div class="inputSection h-11 ml-2 mr-3 border border-white">
+            <input class="h-full w-full outline-none pl-5 pl-5 text-sm bg-black" type="text"
+                placeholder="Enter here your todo work !!!">
+        </div>
 
-        <div class="section1 h-12 mt-3 ml-2 mr-3 border border-white flex justify-evenly items-center">
+        <div class="section1 h-12 ml-2 mr-3 border border-white flex justify-evenly items-center">
             <button class="add p-2 hover:bg-gray-800 rounded-lg flex flex-row items-center justify-center gap-2">
                 <i class="fa-regular fa-square-plus fa-lg"></i>
                 <kbd>Add</kbd>

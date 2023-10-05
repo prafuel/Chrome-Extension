@@ -77,7 +77,7 @@ function loadItems() {
     
         const item = document.createElement('div');
     
-        item.innerHTML = `<div class="flex items-center justify-center gap-2"><input type="checkbox"><span>${i.text}</span></div>`;
+        item.innerHTML = `<div class="flex items-start gap-2"><input class="mt-1" type="checkbox"><span class="text-justify">${i.text}</span></div>`;
         
         item.appendChild(rightSideOptions);
         
@@ -101,7 +101,10 @@ function remove(key) {
 
 function add() {
     // alert("adding new listItem");
-    const li = prompt("Enter here your todo work !!!");
+    // const li = prompt("Enter here your todo work !!!");
+
+    const inputSection = document.querySelector(".inputSection input");
+    const li = inputSection.value;
 
     if(li.trim().length === 0) {
         return;
@@ -119,6 +122,8 @@ function add() {
 
     saveItemsToLocalStorage(items);
     loadItems();
+
+    inputSection.value = "";
 }
 
 const addButton = document.querySelector(".add");
