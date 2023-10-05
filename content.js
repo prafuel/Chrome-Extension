@@ -1,6 +1,23 @@
 
 const section2 = document.querySelector(".section2");
 
+// initally code will run to get all the prev list items
+window.onload = () => {
+    loadItems();
+}
+
+//  to get items array from local storage
+function getItemsFromLocalStorage() {
+    const storedItems = localStorage.getItem("items");
+    return storedItems != null ? JSON.parse(storedItems) : [];
+}
+
+// Save the items array to local storage
+function saveItemsToLocalStorage(items) {
+    localStorage.setItem("items", JSON.stringify(items));
+}
+
+
 const checkSolid = (arr) => {
     for(let i of arr) {
         if(i === "fa-solid") {
@@ -28,37 +45,58 @@ function changeIcon() {
     }
 }
 
-function temp() {
-    const arr = ["complete java series","commit changes in git","wash cloths","bookmark link","college at 10am","ml practical","gym"];
-    // const arr = [];
-    for (let i = 0; i < arr.length; i++) {
+function loadItems() {
+    section2.innerHTML = "";
+    const items = getItemsFromLocalStorage();
 
+    items.forEach(i => {
         const star = document.createElement("span");
         star.innerHTML = '<i class="fa-regular fa-star"></i>';
+        star.classList.add("cursor-pointer");
         star.addEventListener('click',changeIcon);
-
+    
         const edit = document.createElement('span');
         edit.innerHTML = '<i class="fa-solid fa-pencil"></i>';
         edit.classList.add("cursor-pointer");
+    
+        const trash = document.createElement('span');
+        trash.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+        trash.classList.add("cursor-pointer");
+
+        trash.addEventListener('click',() => {
+            // console.log(i.key);
+            remove(i.key);
+        })
 
         const rightSideOptions = document.createElement("div");
         rightSideOptions.classList.add("flex","gap-3")
+
         rightSideOptions.appendChild(edit);
         rightSideOptions.appendChild(star);
-
+        rightSideOptions.appendChild(trash);
+    
         const item = document.createElement('div');
-
-        item.innerHTML = `<div class="flex items-center justify-center gap-2"><input type="checkbox"><span>${arr[i]}</span></div>`;
+    
+        item.innerHTML = `<div class="flex items-center justify-center gap-2"><input type="checkbox"><span>${i.text}</span></div>`;
         
         item.appendChild(rightSideOptions);
         
-        item.classList.add("m-3","p-3","rounded-xl","border-2");
-        item.classList.add("flex","justify-between","gap-6");
+        item.classList.add("m-2","p-3","rounded-xl","border-2");
+        item.classList.add("flex","justify-between","gap-2");
         section2.appendChild(item);
+    });
+}
 
-        // console.log(item);
+function remove(key) {
+    const items = getItemsFromLocalStorage();
+    const idx = items.findIndex(item => item.key === key);
+
+    if(idx !== -1) {
+        items.splice(idx,1);
     }
 
+    saveItemsToLocalStorage(items);
+    loadItems();
 }
 
 function add() {
@@ -69,36 +107,24 @@ function add() {
         return;
     }
 
-    const star = document.createElement("span");
-    star.innerHTML = '<i class="fa-regular fa-star"></i>';
-    star.addEventListener('click',changeIcon);
+    const key = Date.now().toString();
+    const listItem = {
+        text : li,
+        key : key
+    }
 
-    const edit = document.createElement('span');
-    edit.innerHTML = '<i class="fa-solid fa-pencil"></i>';
-    edit.classList.add("cursor-pointer");
+    const items = getItemsFromLocalStorage();
 
-    const rightSideOptions = document.createElement("div");
-    rightSideOptions.classList.add("flex","gap-3")
-    rightSideOptions.appendChild(edit);
-    rightSideOptions.appendChild(star);
+    items.push(listItem);
 
-    const item = document.createElement('div');
-
-    item.innerHTML = `<div class="flex items-center justify-center gap-2"><input type="checkbox"><span>${li}</span></div>`;
-    
-    item.appendChild(rightSideOptions);
-    
-    item.classList.add("m-3","p-3","rounded-xl","border-2");
-    item.classList.add("flex","justify-between","gap-6");
-    section2.appendChild(item);
+    saveItemsToLocalStorage(items);
+    loadItems();
 }
 
 const addButton = document.querySelector(".add");
 addButton.addEventListener("click",add);
 
-const config = document.querySelector(".config");
-config.addEventListener("click",() => {
-    alert("Config");
+const customize = document.querySelector(".customize");
+customize.addEventListener("click",() => {
+    alert("Customize");
 });
-
-temp();
