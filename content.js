@@ -1,6 +1,8 @@
 
 const section2 = document.querySelector(".section2");
 
+const inputSection = document.querySelector(".inputSection input");
+
 // initally code will run to get all the prev list items
 window.onload = () => {
     loadItems();
@@ -45,6 +47,16 @@ function changeIcon() {
     }
 }
 
+function deletionConfirm() {
+    const check = confirm("Want to Delete it?");
+    if(check){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
 function loadItems() {
     section2.innerHTML = "";
     const items = getItemsFromLocalStorage();
@@ -65,7 +77,9 @@ function loadItems() {
 
         trash.addEventListener('click',() => {
             // console.log(i.key);
-            remove(i.key);
+            if(deletionConfirm()) {
+                remove(i.key);
+            }
         })
 
         const rightSideOptions = document.createElement("div");
@@ -102,15 +116,7 @@ function remove(key) {
 function add() {
     // alert("adding new listItem");
     // const li = prompt("Enter here your todo work !!!");
-
-    const inputSection = document.querySelector(".inputSection input");
     const li = inputSection.value;
-
-    inputSection.addEventListener('keydown',function (e){
-        if(e.key === "Enter") {
-            document.querySelector(".add").click();
-        }
-    });
 
     if(li.trim().length === 0) {
         return;
@@ -138,4 +144,10 @@ addButton.addEventListener("click",add);
 const customize = document.querySelector(".customize");
 customize.addEventListener("click",() => {
     alert("Customize");
+});
+
+inputSection.addEventListener('keydown',function (e){
+    if(e.key === "Enter") {
+        document.querySelector(".add").click();
+    }
 });
