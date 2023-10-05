@@ -106,6 +106,12 @@ function add() {
     const inputSection = document.querySelector(".inputSection input");
     const li = inputSection.value;
 
+    inputSection.addEventListener('keydown',function (e){
+        if(e.key === "Enter") {
+            document.querySelector(".add").click();
+        }
+    });
+
     if(li.trim().length === 0) {
         return;
     }
