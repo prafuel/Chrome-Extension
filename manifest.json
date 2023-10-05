@@ -3,7 +3,7 @@
   {
     "manifest_version": 3,
     "name": "List It !",
-    "version": "1.0",
+    "version": "1.0.0",
     "description": "An extension to save and manage your todo list.",
     "permissions": [
       "activeTab",
