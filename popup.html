@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List it!</title>
+</head>
+
+<body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
+    <style>
+        * {
+            color: white;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .extHeight {
+            height: 31.4rem;
+        }
+    </style>
+
+    <div class="container extHeight w-80 bg-black">
+        <div class="heading flex justify-around items-center pt-3 pb-3 pl-3 bg-gray-800">
+            <div class="flex gap-2">
+                <div class="logo"><i class="fa-solid fa-list"></i></div>
+                <kbd>List here all your Tasks....</kbd>
+            </div>
+
+            <div class="temp h-8 w-8 border border-white rounded-full"></div>
+        </div>
+        <!-- <div class="featureList text-center h-3"><kbd>Features</kbd></div> -->
+
+
+        <div class="social flex justify-evenly mt-4 gap-3">
+            <div class="instagram"><a target="_blank" href="https://www.instagram.com/just_prafull/"><i
+                        class="fa-brands fa-instagram fa-2xl"></i></a></div>
+            <div class="github"><a target="_blank" href="https://github.com/prafuel"><i
+                        class="fa-brands fa-github fa-2xl"></i></a></div>
+            <div class="linkedin"><a target="_blank" href="https://www.linkedin.com/in/prafull-sonawane-79a401231/"><i
+                        class="fa-brands fa-linkedin fa-2xl"></i></a></div>
+        </div>
+
+
+        <div class="section2 h-80 mt-4 ml-2 mr-3 border border-white bg-gray-800 overflow-y-auto no-scrollbar"></div>
+
+
+        <div class="section1 h-12 mt-3 ml-2 mr-3 border border-white flex justify-evenly items-center">
+            <button class="add p-2 hover:bg-gray-800 rounded-lg">
+                <i class="fa-regular fa-square-plus"></i>
+                <kbd>Add</kbd>
+            </button>
+            <button class="remove p-2 hover:bg-gray-800 rounded-lg">
+                <i class="fa-solid fa-trash"></i>
+                <kbd>Remove</kbd>
+            </button>
+            <button class="config p-2 hover:bg-gray-800 rounded-lg">
+                <i class="fa-solid fa-gear"></i>
+                <kbd>Config</kbd>
+            </button>
+        </div>
+    </div>
+</body>
+
+<script src="./content.js"></script>
+
+</html>
