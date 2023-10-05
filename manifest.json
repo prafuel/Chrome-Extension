@@ -4,7 +4,7 @@
     "manifest_version": 3,
     "name": "List It !",
     "version": "1.0.0",
-    "description": "An extension to save and manage your todo list.",
+    "description": "An extension to save and manage your todo list, very useful,friendly clipboard. to save your text file or copied data.",
     "permissions": [
       "activeTab",
       "management",
