@@ -29,13 +29,14 @@
     </style>
 
     <div class="container extHeight extWidth bg-black flex flex-col justify-around">
-        <div class="heading flex justify-between items-center pt-3 pb-3 pl-3 bg-gray-800">
+        <div class="heading flex justify-between items-center pt-4 pb-3 pl-3 bg-gray-800">
             <div class="flex gap-2 mr-3">
                 <div class="logo"><i class="fa-solid fa-list"></i></div>
                 <kbd>List here all your Tasks....</kbd>
             </div>
 
-            <div class="temp h-8 w-8 border border-white rounded-lg flex items-center justify-center mr-3"><i class="fa-brands fa-angellist fa-xl"></i></div>
+            <div class="temp h-8 w-8 border border-white rounded-lg flex items-center justify-center mr-3"><i
+                    class="fa-brands fa-angellist fa-xl"></i></div>
         </div>
         <!-- <div class="featureList text-center h-3"><kbd>Features</kbd></div> -->
 
@@ -54,24 +55,24 @@
             class="section2 h-80 mt-2 ml-2 mr-3 flex flex-col border border-white bg-gray-800 overflow-y-auto no-scrollbar">
         </div>
 
-        <div class="inputSection h-11 ml-2 mr-3 border border-white">
+        <div class="inputSection h-11 w-fit ml-2 mr-3 border border-white flex flex-row">
             <input class="h-full w-full outline-none pl-5 pl-5 text-sm bg-black" type="text"
                 placeholder="Enter here your todo work !!!">
+
+            <button class="add pr-3 pl-3 rounded-lg flex flex-row items-center justify-center gap-2">
+                <i class="fa-regular fa-square-plus fa-xl"></i>
+                <!-- <kbd>Add</kbd> -->
+            </button>
         </div>
 
         <div class="section1 h-12 ml-2 mr-3 border border-white flex justify-evenly items-center">
-            <button class="add p-2 hover:bg-gray-800 rounded-lg flex flex-row items-center justify-center gap-2">
-                <i class="fa-regular fa-square-plus fa-lg"></i>
-                <kbd>Add</kbd>
-            </button>
-            <!-- <button class="remove p-2 hover:bg-gray-800 rounded-lg">
-                <i class="fa-solid fa-trash"></i>
-                <kbd>Remove</kbd>
-            </button> -->
-            <button class="customize p-2 hover:bg-gray-800 rounded-lg flex flex-row items-center justify-center gap-2">
-                <i class="fa-solid fa-gear"></i>
-                <kbd>Customize</kbd>
-            </button>
+            <a href="./templates/config.html">
+                <button
+                    class="customize p-2 hover:bg-gray-800 rounded-lg flex flex-row items-center justify-center gap-2">
+                    <i class="fa-solid fa-gear"></i>
+                    <kbd>Customize</kbd>
+                </button>
+            </a>
         </div>
     </div>
 </body>

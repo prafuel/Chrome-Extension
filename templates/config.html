@@ -1,7 +1,41 @@
 
 <html>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
+
+    <style>
+         * {
+            color: white;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .extHeight {
+            height: 34rem;
+        }
+
+        .extWidth {
+            width: 30rem;
+        }
+    </style>
+
     <body>
-        <div class="config">add Description to this perticular list item</div>
+        <div class="container container extHeight extWidth bg-black">
+            <div class="heading flex flex-row-reverse justify-between items-center pt-3 pb-3 pl-3 bg-gray-800">
+                <div class="flex items-center gap-2 mr-3">
+                    <div class="logo"><i class="fa-solid fa-gear"></i></div>
+                    <kbd>Customize</kbd>
+                </div>
+                <div class="backButton flex items-center gap-2 p-2 bg-gray-700 rounded-lg">
+                    <i class="fa-sharp fa-solid fa-turn-down fa-rotate-90"></i>
+                    <a href="../popup.html"><kbd>Back</kbd></a>
+                </div>
+            </div>
+
+            <div class="section1 h-96 ml-2 mr-2 mt-2 border-2 border-white"></div>
+        </div>
     </body>
     
     <script src="../scripts/config.js"></script>

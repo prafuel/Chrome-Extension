@@ -141,10 +141,10 @@ function add() {
 const addButton = document.querySelector(".add");
 addButton.addEventListener("click",add);
 
-const customize = document.querySelector(".customize");
-customize.addEventListener("click",() => {
-    alert("Customize");
-});
+// const customize = document.querySelector(".customize");
+// customize.addEventListener("click",() => {
+//     alert("Customize");
+// });
 
 inputSection.addEventListener('keydown',function (e){
     if(e.key === "Enter") {
