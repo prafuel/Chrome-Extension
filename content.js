@@ -4,9 +4,7 @@ const section2 = document.querySelector(".section2");
 const inputSection = document.querySelector(".inputSection input");
 
 // initally code will run to get all the prev list items
-window.onload = () => {
-    loadItems();
-}
+loadItems();
 
 //  to get items array from local storage
 function getItemsFromLocalStorage() {
@@ -139,7 +137,9 @@ function add() {
 }
 
 const addButton = document.querySelector(".add");
-addButton.addEventListener("click",add);
+addButton.addEventListener("click",() => {
+    add();
+});
 
 // const customize = document.querySelector(".customize");
 // customize.addEventListener("click",() => {
@@ -149,5 +149,18 @@ addButton.addEventListener("click",add);
 inputSection.addEventListener('keydown',function (e){
     if(e.key === "Enter") {
         document.querySelector(".add").click();
+    }
+});
+
+
+
+// clear localStorage
+const clear = document.querySelector(".clear");
+console.log(clear);
+clear.addEventListener('click',() => {
+    
+    if(confirm("Warning!! Want to Clear List?")) {
+        localStorage.clear();
+        loadItems();
     }
 });
