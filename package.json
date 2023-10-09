@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "tailwindcss": "^3.3.3"
+  },
+  "name": "chrome-extension",
+  "description": "### Hey There 👋",
+  "version": "1.0.0",
+  "main": "content.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": []
+}
