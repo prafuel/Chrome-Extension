@@ -153,14 +153,3 @@ inputSection.addEventListener('keydown',function (e){
 });
 
 
-
-// clear localStorage
-const clear = document.querySelector(".clear");
-console.log(clear);
-clear.addEventListener('click',() => {
-    
-    if(confirm("Warning!! Want to Clear List?")) {
-        localStorage.clear();
-        loadItems();
-    }
-});
