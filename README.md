@@ -11,7 +11,7 @@ Even tho i'm currently using it for saving screenshot urls :stuck_out_tongue_win
 here are Some of Screenshot and How to used it...<br>
 
 
-➡️ Just a basic frontend, like input section, insert button and customizaion button <br>
+➡️ Just a basic frontend, like input section, insert button and customization button <br>
 ➡️ Gonna publish it soon on Chrome, but still if you are willing to use it, clone it into your local device. <br>
 
 ```$ git clone https://github.com/prafuel/Chrome-Extensions.git``` <br>
