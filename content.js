@@ -3,6 +3,11 @@ const section2 = document.querySelector(".section2");
 
 const inputSection = document.querySelector(".inputSection input");
 
+if(localStorage.getItem('listMode') === "true") {
+    section2.classList.remove("flex-row","flex-wrap");
+    section2.classList.add("flex-col");
+}
+
 // initally code will run to get all the prev list items
 loadItems();
 
