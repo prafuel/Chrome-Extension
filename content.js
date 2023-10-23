@@ -3,13 +3,15 @@ const section2 = document.querySelector(".section2");
 
 const inputSection = document.querySelector(".inputSection input");
 
-if(localStorage.getItem('listMode') === "true") {
-    section2.classList.remove("flex-row","flex-wrap");
+
+if (localStorage.getItem('listMode') === "true") {
+    section2.classList.remove("flex-row", "flex-wrap");
     section2.classList.add("flex-col");
 }
 
 // initally code will run to get all the prev list items
-loadItems();
+// loadItems();
+document.addEventListener('DOMContentLoaded', loadItems);
 
 //  to get items array from local storage
 function getItemsFromLocalStorage() {
@@ -24,8 +26,8 @@ function saveItemsToLocalStorage(items) {
 
 
 const checkSolid = (arr) => {
-    for(let i of arr) {
-        if(i === "fa-solid") {
+    for (let i of arr) {
+        if (i === "fa-solid") {
             return true;
         }
     }
@@ -40,11 +42,11 @@ function changeIcon() {
     // console.log(starI.classList);
     // console.log(checkSolid(starI.classList));
 
-    if(checkSolid(starI.classList)) {
+    if (checkSolid(starI.classList)) {
         starI.classList.remove("fa-solid");
         starI.classList.add("fa-regular");
     }
-    else{
+    else {
         starI.classList.remove("fa-regular");
         starI.classList.add("fa-solid");
     }
@@ -52,10 +54,10 @@ function changeIcon() {
 
 function deletionConfirm() {
     const check = confirm("Want to Delete it?");
-    if(check){
+    if (check) {
         return true;
     }
-    else{
+    else {
         return false;
     }
 }
@@ -68,38 +70,38 @@ function loadItems() {
         const star = document.createElement("span");
         star.innerHTML = '<i class="fa-regular fa-star"></i>';
         star.classList.add("cursor-pointer");
-        star.addEventListener('click',changeIcon);
-    
+        star.addEventListener('click', changeIcon);
+
         const edit = document.createElement('span');
         edit.innerHTML = '<i class="fa-solid fa-pencil"></i>';
         edit.classList.add("cursor-pointer");
-    
+
         const trash = document.createElement('span');
         trash.innerHTML = `<i class="fa-solid fa-trash"></i>`;
         trash.classList.add("cursor-pointer");
 
-        trash.addEventListener('click',() => {
+        trash.addEventListener('click', () => {
             // console.log(i.key);
-            if(deletionConfirm()) {
+            if (deletionConfirm()) {
                 remove(i.key);
             }
         })
 
         const rightSideOptions = document.createElement("div");
-        rightSideOptions.classList.add("flex","gap-3")
+        rightSideOptions.classList.add("flex", "gap-3")
 
         rightSideOptions.appendChild(edit);
         rightSideOptions.appendChild(star);
         rightSideOptions.appendChild(trash);
-    
+
         const item = document.createElement('div');
-    
+
         item.innerHTML = `<div class="flex items-start gap-2"><input class="mt-1" type="checkbox"><span class="text-justify">${i.text}</span></div>`;
-        
+
         item.appendChild(rightSideOptions);
-        
-        item.classList.add("m-2","p-3","rounded-xl","border-2");
-        item.classList.add("flex","justify-between","gap-2");
+
+        item.classList.add("m-2", "p-3", "rounded-xl", "border-2");
+        item.classList.add("flex", "justify-between", "gap-2");
         section2.appendChild(item);
     });
 }
@@ -108,8 +110,8 @@ function remove(key) {
     const items = getItemsFromLocalStorage();
     const idx = items.findIndex(item => item.key === key);
 
-    if(idx !== -1) {
-        items.splice(idx,1);
+    if (idx !== -1) {
+        items.splice(idx, 1);
     }
 
     saveItemsToLocalStorage(items);
@@ -121,14 +123,14 @@ function add() {
     // const li = prompt("Enter here your todo work !!!");
     const li = inputSection.value;
 
-    if(li.trim().length === 0) {
+    if (li.trim().length === 0) {
         return;
     }
 
     const key = Date.now().toString();
     const listItem = {
-        text : li,
-        key : key
+        text: li,
+        key: key
     }
 
     const items = getItemsFromLocalStorage();
@@ -142,7 +144,7 @@ function add() {
 }
 
 const addButton = document.querySelector(".add");
-addButton.addEventListener("click",() => {
+addButton.addEventListener("click", () => {
     add();
 });
 
@@ -151,8 +153,8 @@ addButton.addEventListener("click",() => {
 //     alert("Customize");
 // });
 
-inputSection.addEventListener('keydown',function (e){
-    if(e.key === "Enter") {
+inputSection.addEventListener('keydown', function (e) {
+    if (e.key === "Enter") {
         document.querySelector(".add").click();
     }
 });

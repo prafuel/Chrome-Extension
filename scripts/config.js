@@ -1,6 +1,6 @@
 
 
-const section2 = document.querySelector(".section1");
+const section = document.querySelector(".section");
 // console.log(section2);
 
 // feature 1
@@ -32,7 +32,7 @@ function feature1() {
         console.log(localStorage);
     })
 
-    section2.appendChild(f1);
+    section.appendChild(f1);
 }
 
 /* <button
@@ -47,7 +47,7 @@ function clearLocal() {
     const clear = document.createElement("div");
     clear.innerHTML = `<kbd class="ml-1" >LocalStorage</kbd><button class="pl-3 pr-3 pt-1 pb-1 rounded-lg bg-gray-600">Clear</button>`;
     clear.classList.add("clear", "flex", "flex-row", "items-center", "justify-between", "h-10", "border", "border-white", "bg-gray-800", "rounded-lg", "p-5", "ml-3", "mr-3", "mb-2");
-    section2.appendChild(clear);
+    section.appendChild(clear);
 
     // clear localStorage
     clear.addEventListener('click', () => {
@@ -58,6 +58,9 @@ function clearLocal() {
         }
     });
 }
+
+
+
 
 feature1();
 clearLocal();
